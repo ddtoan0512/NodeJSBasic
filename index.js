@@ -2,6 +2,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
+var shortid = require('shortid');
 var port = 3000;
 // LowDB
 var low = require('lowdb');
@@ -60,10 +61,22 @@ app.get('/users/create', (req, res)=>{
     res.render('users/create');
 })
 
+app.get('/users/:id', (req, res)=>{
+    // var id = parseInt(req.params.id); Bỏ đi vì dùng shortid rồi!
+    var id = req.params.id;
+    var user = db.get('users').find({ id: id}).value();
+
+    res.render('users/view', {
+        user: user
+    });
+})
+
 app.post('/users/create', function(req, res){
+    req.body.id = shortid.generate();
     db.get('users').push(req.body).write();
     res.redirect('/users');
 })
+
 
 app.listen(port,function(){
     console.log('Server listening on port ' + port);
