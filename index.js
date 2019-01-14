@@ -13,6 +13,7 @@ app.set('views', './views');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
 
+app.use(express.static('public'));
 //Bo di
 // var users = [
 //     { id: 1,name: 'Toan'},
