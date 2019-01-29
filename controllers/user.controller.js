@@ -20,7 +20,7 @@ module.exports.search = (req, res) => {
 }
 
 module.exports.create = (req, res)=>{
-    
+    console.log(req.cookies);
     res.render('users/create');
 }
 
@@ -36,6 +36,8 @@ module.exports.get = (req, res)=>{
 
 module.exports.postCreate =  function(req, res){
     req.body.id = shortid.generate();
+
+    
 
     db.get('users').push(req.body).write();
     res.redirect('/users');
