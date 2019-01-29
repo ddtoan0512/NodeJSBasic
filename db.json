@@ -1,17 +1,11 @@
 {
   "users": [
     {
-      "name": "Quang",
-      "id": "WZTOZXh5P"
-    },
-    {
-      "name": "Thong",
-      "id": "AvJXqU5h1"
-    },
-    {
       "name": "Toan ",
       "phone": "0972695558",
-      "id": "GAQrfjhZQ"
+      "id": "GAQrfjhZQ",
+      "email": "ddtoan991205@gmail.com",
+      "password": "123456"
     },
     {
       "name": "Chiến",
@@ -22,6 +16,11 @@
       "name": "Tuấn Anh",
       "phone": "5765755",
       "id": "1cxWtD_7r"
+    },
+    {
+      "name": "Tuan Anh",
+      "phone": "0942432xxxxx",
+      "id": "7xTUjC4Oi"
     }
   ]
 }
