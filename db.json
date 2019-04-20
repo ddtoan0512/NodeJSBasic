@@ -756,5 +756,31 @@
       "description": "elementum ligula vehicula consequat morbi a ipsum integer",
       "price": 967
     }
+  ],
+  "sessions": [
+    {
+      "id": "YzYxPetTq",
+      "cart": {
+        "a9f8f791-7e68-4cf2-bd19-0f29f8f96a25": 2,
+        "17ca7082-7b92-4f7c-bfbf-3944deb0d08d": 1
+      }
+    },
+    {
+      "id": "mkAxFKr2P",
+      "cart": {
+        "17ca7082-7b92-4f7c-bfbf-3944deb0d08d": 2,
+        "c8a3d106-3596-45dc-a27b-dd32e53d1ed1": 1,
+        "29fa30d3-7e45-4ca6-a427-792b97e463b0": 2,
+        "a9f8f791-7e68-4cf2-bd19-0f29f8f96a25": 3,
+        "b89e8500-14b1-491c-9078-3d24e575adbc": 1,
+        "8eda5981-7dda-4711-bfff-2d90c748b46c": 1
+      }
+    },
+    {
+      "id": "5Huuv6n8v",
+      "cart": {
+        "17ca7082-7b92-4f7c-bfbf-3944deb0d08d": 1
+      }
+    }
   ]
 }
