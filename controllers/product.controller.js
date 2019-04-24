@@ -10,6 +10,7 @@ module.exports.index = (req, res)=>{
     var drop = (page - 1) * perPage;
 
     var sessionId = req.signedCookies.sessionId; 
+    
     var countProd = db.get("sessions")
     .find({ id: sessionId })
     .get("cart")
