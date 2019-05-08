@@ -1,10 +1,22 @@
 var db = require('../db');
 var shortid = require('shortid');
+var User = require('../models/user.model')
 
-module.exports.index = function(req, res){
+module.exports.index = async function(req, res){
+    // res.render('users/index', {
+    //     users: db.get('users').value()
+    // });
+
+    var Users = await User.find();
     res.render('users/index', {
-        users: db.get('users').value()
+        users: Users
     });
+
+    // User.find().then( users => {
+    //     res.render('users/index', {
+    //         users: users
+    //     });
+    // })
 }
 
 module.exports.search = (req, res) => {
@@ -37,7 +49,20 @@ module.exports.postCreate =  function(req, res){
     req.body.id = shortid.generate();
     req.body.avatar = req.file.path.split('\\').slice(1).join('/');
 
+    var user = new User();
+    user.name = req.body.name;
+    user.phone = req.body.phone;
+    user.avatar = req.file.path.split('\\').slice(1).join('/');
+    
+    user.save((err, doc) => {
+            if(!err){
+                res.redirect('/users');
+            }
+            else{
+                console.log('Loi khi them User' + err);
+            }
+    })
 
-    db.get('users').push(req.body).write();
-    res.redirect('/users');
+    // db.get('users').push(req.body).write();
+    // res.redirect('/users');
 }

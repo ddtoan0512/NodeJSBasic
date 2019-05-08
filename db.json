@@ -10,7 +10,9 @@
     {
       "name": "Chiến",
       "phone": "123456",
-      "id": "Bw__0-w5v"
+      "id": "Bw__0-w5v",
+      "email": "ddtoan0512@gmail.com",
+      "password": "e10adc3949ba59abbe56e057f20f883e"
     },
     {
       "name": "Tuấn Anh",
@@ -805,6 +807,24 @@
       "cart": {
         "a9f8f791-7e68-4cf2-bd19-0f29f8f96a25": 1
       }
+    },
+    {
+      "id": "OsA8_s3Ie"
+    },
+    {
+      "id": "sy1ZSINji"
+    },
+    {
+      "id": "Xu1MXa8wU"
+    },
+    {
+      "id": "0L3lmaJV2"
+    },
+    {
+      "id": "M0Ls-uiYd"
+    },
+    {
+      "id": "a8lz_FsRG"
     }
   ]
 }
