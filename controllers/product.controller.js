@@ -1,6 +1,6 @@
 // var db = require('../db');
 var Product = require('../models/product.model');
-module.exports.index = (req, res)=>{
+module.exports.index = async (req, res)=>{
     // var page = parseInt(req.query.page) || 1; //n
     // var perPage = 8; // x
 
@@ -27,9 +27,9 @@ module.exports.index = (req, res)=>{
     //     countProd: countProd
     // });
 
-    Product.find().then( products => {
+    let Products = await Product.find();
+
         res.render('products/index', {
-            products: products
+            products: Products
         });
-    })
 }

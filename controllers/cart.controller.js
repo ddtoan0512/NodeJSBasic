@@ -1,6 +1,6 @@
-var db = require('../db');
-
-module.exports.addToCart = function(req, res, next){
+var Session = require('../models/session.model');
+var Product = require('../models/product.model');
+module.exports.addToCart = async function(req, res, next){
     var productId = req.params.productId;
     var sessionId = req.signedCookies.sessionId;
 
@@ -9,15 +9,22 @@ module.exports.addToCart = function(req, res, next){
         return;
     }
 
-    var count = db.get('sessions')
-        .find({id: sessionId})
-        .get('cart.' + productId, 0)
-        .value();
+    let product = await Product.findById(productId);
 
-    db.get('sessions')
-      .find({ id: sessionId })
-      .set('cart.' +  productId, count + 1)
-      .write();
+    Session.findOne({ _id: sessionId }, (err, session) => {
+        if(err) {
+            console.log(err);
+        } else {
+            session.cart.push(product);
+            session.save((error, session) => {
+                if(error) {
+                    console.log(error);
+                } else {
+                    console.log(session);
+                }
+            });
+        }
+    });
 
     res.redirect('/products');  
 }

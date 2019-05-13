@@ -1,6 +1,6 @@
 var db = require('../db');
 var shortid = require('shortid');
-var User = require('../models/user.model')
+var User = require('../models/user.model');
 
 module.exports.index = async function(req, res){
     // res.render('users/index', {
@@ -49,18 +49,27 @@ module.exports.postCreate =  function(req, res){
     req.body.id = shortid.generate();
     req.body.avatar = req.file.path.split('\\').slice(1).join('/');
 
-    var user = new User();
-    user.name = req.body.name;
-    user.phone = req.body.phone;
-    user.avatar = req.file.path.split('\\').slice(1).join('/');
+    // var user = new User();
+    // user.name = req.body.name;
+    // user.phone = req.body.phone;
+    // user.avatar = req.file.path.split('\\').slice(1).join('/');
     
-    user.save((err, doc) => {
-            if(!err){
-                res.redirect('/users');
-            }
-            else{
-                console.log('Loi khi them User' + err);
-            }
+    // user.save((err, doc) => {
+    //         if(!err){
+    //             res.redirect('/users');
+    //         }
+    //         else{
+    //             console.log('Loi khi them User' + err);
+    //         }
+    // })
+
+    User.create(req.body, (err, doc) => {
+        if(!err){
+            res.redirect('/users')
+        }
+        else{
+            console.log('Loi khi them user' + err);
+        }
     })
 
     // db.get('users').push(req.body).write();
