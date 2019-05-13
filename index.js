@@ -44,6 +44,12 @@ app.get('/', function(req, res){
     });
 })
 
+app.use(function(req, res, next) {
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
+  });
+
 app.use('/users',authMiddleware.requireAuth, userRoute);
 app.use('/auth', authRoute);
 app.use('/products', productRoute);
